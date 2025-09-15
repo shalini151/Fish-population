@@ -45,7 +45,7 @@ def index():
         try:
             temp = float(request.form['temperature'])
             ph = float(request.form['ph'])
-            input_data = np.array([[temp, ph]])
+            input_data = pd.DataFrame([[temp, ph]], columns=['water_temperature', 'pH'])
             prediction_rf = rf_model.predict(input_data)[0]
             prediction_nn = nn_model.predict(input_data).flatten()[0]
         except Exception as e:
