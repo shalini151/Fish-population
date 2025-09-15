@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fish Population Predictor</title>
+</head>
+<body>
+    <h1>Fish Population Predictor</h1>
+    <form method="POST">
+        <label>Water Temperature:</label>
+        <input type="number" step="any" name="temperature" required><br><br>
+
+        <label>pH Level:</label>
+        <input type="number" step="any" name="ph" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_rf is not none %}
+        <h2>Results:</h2>
+        <p><strong>Random Forest Prediction:</strong> {{ prediction_rf }}</p>
+        <p><strong>Neural Network Prediction:</strong> {{ prediction_nn }}</p>
+        <p><strong>Random Forest MSE:</strong> {{ mse_rf }}</p>
+        <p><strong>Neural Network MSE:</strong> {{ mse_nn }}</p>
+    {% endif %}
+</body>
+</html>
